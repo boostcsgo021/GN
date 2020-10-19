@@ -22,7 +22,7 @@ screen = pygame.display.set_mode((W, H))
 pygame.mouse.set_visible(False)
 
 font = pygame.font.SysFont('Arial', 28, True, False)
-font2 = pygame.font.SysFont('Arial', 28, False, True)
+font2 = pygame.font.SysFont('Arial', 14, False, True)
 font_box = pygame.Surface((W - 20, font.get_height()))
 font_rect = font_box.get_rect(center=(W // 2, H - font.get_height()))
 
@@ -43,7 +43,7 @@ dialog_rect = dialog.get_rect()
 
 dialog_cat_pos = (cat_rect.x, cat_rect.y - dialog_rect.h)
 dialog_dog_pos = (dog_rect.x - dialog_rect.w // 2, dog_rect.y - dialog_rect.h)
-dialog_owl_pos = (owl_rect.x - owl_rect.w // 2, owl_rect.y - owl_rect.h)
+dialog_owl_pos = (owl_rect.x, owl_rect.y - owl_rect.h)
 
 print(bg_rect)
 
@@ -51,7 +51,7 @@ def dialogs(text, pos, owl_text):
     screen.blit(dialog, pos)
     screen.blit(font2.render(text, True, BLACK), (pos[0] + 5, pos[1] + 5))
     screen.blit(dialog, dialog_owl_pos)
-    screen.blit(font2.render(owl_text, True, BLACK), (pos[0] + 5, pos[1] + 5))
+    screen.blit(font2.render(owl_text, True, BLACK), (dialog_owl_pos[0] + 5, dialog_owl_pos[1] + 5))
     pygame.display.update()
     pygame.time.wait(2000)
 
